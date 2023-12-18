@@ -9,7 +9,7 @@ readline.on('line', function(line) {
     input = line.split(' ').map(el => parseInt(el));
 }).on('close', function(){
 
-    console.log("Hello World!")
+    console.log('Hello World!')
     
     process.exit();
 });
