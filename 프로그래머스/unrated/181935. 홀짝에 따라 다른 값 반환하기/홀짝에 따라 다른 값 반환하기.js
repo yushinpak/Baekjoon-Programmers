@@ -1,4 +1,5 @@
-// 남의 풀이
+//백준허브 맨 마지막으로 들어가는지 궁금
+
 function solution(n) {
     var answer = 0;
 
