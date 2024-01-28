@@ -8,9 +8,8 @@ const input = require('fs')
     .trim()
     .split("\n");
 
-const lineNum = Number(input[0]);
-
 //방법1. 문자열 출력 for문 사용해서
+// const lineNum = Number(input[0]);
 // for(let i = 1; i <= lineNum; i++) {
 //     let arr = input[i].split(' ')
 //     , repeatNum = Number(arr[0])
