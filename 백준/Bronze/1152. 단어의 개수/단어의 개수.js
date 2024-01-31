@@ -9,19 +9,16 @@ const input = require('fs')
     .split(' ');
 
 
+//첫번째 시도한 풀이(맨첫문자 ''경우 제거)
+// let answer = input.length
 
-let answer = input.length
+// if (input[0] === '') {
+// answer -= 1
+// }
 
-if (input[0] === '') {
-    answer -= 1
-}
+// console.log(answer)
 
-if (input[0] === ' ') {
-    answer -= 1
-} 
+//2번 - 삼항연산자 사용해보기
 
-if (input[input.length-1] === ' '){
-    answer -= 1
-}
 
-console.log(answer)
+input[0] === "" ? console.log(input.length - 1) : console.log(input.length)
