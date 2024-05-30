@@ -1,27 +1,27 @@
-const input = require("fs")
-  .readFileSync(
-    process.platform === "linux" ? "/dev/stdin" : "10798/input2.txt"
-  )
-  .toString()
-  .split("\n");
+const fs = require("fs");
 
-// 가장 긴 배열 발견해서 length 받아오기
-let lengthArray = [];
-input.forEach((array) => {
-  lengthArray.push(array.length);
-});
-const maxLength = Math.max(...lengthArray);
+const readInput = (filePath) => {
+  return fs.readFileSync(filePath).toString().split("\n");
+};
 
-// while문 사용하여 count로 index 지정하기
-let answer = "";
-let index = 0;
-while (index <= maxLength - 1) {
-  for (let array = 0; array < input.length; array++) {
-    if (input[array][index]) {
-      answer += input[array][index];
+const findMaxLength = (input) => {
+  return Math.max(...input.map(line => line.length));
+};
+
+const createAnswerString = (input, maxLength) => {
+  let answer = "";
+  for (let index = 0; index < maxLength; index++) {
+    for (let line of input) {
+      if (line[index]) {
+        answer += line[index];
+      }
     }
   }
-  index++;
-}
+  return answer;
+};
+
+const input = readInput(process.platform === "linux" ? "/dev/stdin" : "10798/input2.txt");
+const maxLength = findMaxLength(input);
+const answer = createAnswerString(input, maxLength);
 
 console.log(answer);
